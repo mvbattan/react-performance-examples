@@ -7,9 +7,9 @@ import hearthstoneActions from '../redux/hearthstone/actions';
 import HearthstoneCardList from './components/HearthstoneCardList';
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     setInterval(
-      () => this.props.dispatch(hearthstoneActions.otherAction()),
+      () => this.props.otherAction(),
       500
     )
   }
@@ -28,4 +28,8 @@ const mapStateToProps = store => ({
   tickCount: store.hearthstone.count
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  otherAction: () => dispatch(hearthstoneActions.otherAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

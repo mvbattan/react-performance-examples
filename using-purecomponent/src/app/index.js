@@ -12,7 +12,7 @@ class App extends Component {
     otherProps: { password: '1234' }
   };
 
-  componentWillMount() {
+  componentDidMount() {
     setInterval(
       () => {
         this.setState(prevState => ({ counter: prevState.counter + 1 }));
