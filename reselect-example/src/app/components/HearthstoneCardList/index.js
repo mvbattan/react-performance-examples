@@ -8,8 +8,8 @@ import HearthstoneCard from './components/HearthstoneCard';
 import './styles.css';
 
 class HearthStoneCardList extends Component {
-  componentWillMount() {
-    this.props.dispatch(hearthstoneActions.getHearthstoneCards());
+  componentDidMount() {
+    this.props.getHearthstoneCards();
   }
 
   render() {
@@ -35,4 +35,8 @@ const mapStateToProps = store => ({
   loading: store.hearthstone.cardsLoading
 });
 
-export default connect(mapStateToProps)(HearthStoneCardList);
+const mapDispatchToProps = dispatch => ({
+  getHearthstoneCards: () => dispatch(hearthstoneActions.getHearthstoneCards())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HearthStoneCardList);

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class IncrementalCounter extends Component {
   state = { value: 0 };
 
-  componentWillMount() {
+  componentDidMount() {
     setInterval(
       () => this.setState(prevState => ({ value: prevState.value + 1 })),
       1000
